@@ -1,0 +1,20 @@
+Kuber.com - group
+User: kuber.com
+	Acces key: AKIASX2NJC2N27JDMYWX
+	Sce Access key: xtOQSs8KaN6Io3e8wTkFU6YLPdSNWCIM8GngV/VR
+
+ap-south-1
+3.109.62.32
+
+ aws s3 mb s3://kuber.com
+
+export KOPS_STATE_STORE=s3://kuber.com
+
+kops create cluster --cloud=aws --zones=ap-south-1a --name=kuber.com --dns-zone=kuber.com --dns private
+
+kops edit ig --name=kuber.com master-ap-south-1a
+kops edit ig --name=kuber.com nodes-ap-south-1a
+
+kops update cluster kuber.com --yes
+
+kops delete cluster kuber.com --yes
