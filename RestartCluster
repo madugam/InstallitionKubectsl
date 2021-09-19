@@ -1,0 +1,13 @@
+aws s3 mb s3://kubeky.com
+
+export KOPS_STATE_STORE=s3://kubeky.com
+
+kops create cluster --cloud=aws --zones=us-east-2a --name=kubeky.com --dns-zone=kubeky.com --dns private
+
+kops update cluster kubeky.com --yes
+
+kops validate cluster --wait=10
+
+kops delete cluster kubeky.com --yes
+
+kops update cluster dev.k8s.valaxy.in --yes
