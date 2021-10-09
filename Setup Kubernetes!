@@ -18,7 +18,7 @@
     chmod +x ./kubectl
     sudo mv ./kubectl /usr/local/bin/kubectl
    ```
-4. Create an IAM user/role  with Route53, EC2, IAM and S3 full access
+4. Create an IAM user/role  with Route53, EC2, IAM and S3 full access also SQS + Event bridge
 5. Attach IAM role to ubuntu server
 
     #### Note: If you create IAM user with programmatic access then provide Access keys. 
